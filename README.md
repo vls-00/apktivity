@@ -1,11 +1,21 @@
-# apk-scanner-tools
-> ⚠️ **For education purposes, developers, and authorized testing only.** Use these tools
+<pre align="center">
+   ___      ___   _  __    _        _               _      _       _  _  
+  /   \    | _ \ | |/ /   | |_     (_)    __ __    (_)    | |_    | || | 
+  | - |    |  _/ | ' <    |  _|    | |    \ V /    | |    |  _|    \_, | 
+  |_|_|   _|_|_  |_|\_\   _\__|   _|_|_   _\_/_   _|_|_   _\__|   _|__/  
+_|"""""|_| """ |_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_| """"| 
+"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-' 
+</pre>
+>[!warning]
+>**For educational purposes, developers and authorized testers only.** 
+> 
+> Use these tools
 > on apps you own or have explicit written permission to assess. Scanning or
 > attacking apps without authorization may be illegal. You are responsible for
 > how you use them.
 
 Three Python scanners that check an Android `.apk` for common activity
-vulnerabilities. No dependencies, just Python 3.8+.
+vulnerabilities. Only Python 3.8+ needed.
 
 Auditing these issues by hand means reading the manifest, chasing class
 hierarchies through the DEX and cross-referencing SDK behaviour for every
@@ -17,10 +27,12 @@ activity. These tools automate the process.
 | `deeplink_scanner.py` | exported deep links that can be hijacked or abused |
 | `task_hijacking_scanner.py` | activities a malicious app can pull into its task (StrandHogg) |
 
-Each finding prints a verdict, the relevant manifest attributes, **Why** it should be checked, a **Test** section with `adb` commands (if applicable), and a **Fix** section for remediation. Severity
-accounts for the APK's minSdk/targetSdk.
+Each finding prints a verdict, the relevant manifest attributes, **Why** it should be checked and a **Fix** section for remediation. 
 
-Every scanner accepts `--all` (shows components that look safe) and `--json`
+>[!note]
+>Severity accounts for the APK's minSdk/targetSdk.
+
+Every scanner accepts `--all` (also shows components that look safe) and `--json`
 (output).
 
 ## Tapjacking
